@@ -1,0 +1,45 @@
+<template name="join">
+  <div class="page auth">
+    <nav>
+      <div class="nav-group">
+        <a href="#" class="js-menu nav-item"><span class="icon-list-unordered"></span></a>
+      </div>
+    </nav>
+
+    <div class="content-scrollable">
+      <div class="wrapper-auth">
+        <h1 class="title-auth">注册.</h1>
+        <p class="subtitle-auth" >注册用户允许创建私有会议记录</p>
+
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <div class="input-symbol  {{errorClass 'email'}}">
+            <input type="email" name="email" placeholder="邮箱" />
+            <span class="icon-email" title="邮箱"></span>
+          </div>
+
+          <div class="input-symbol  {{errorClass 'password'}}">
+            <input type="password" name="password" placeholder="密码" />
+            <span class="icon-lock" title="密码"></span>
+          </div>
+
+          <div class="input-symbol {{errorClass 'confirm'}}">
+            <input type="password" name="confirm" placeholder="确认密码" />
+            <span class="icon-lock" title="确认密码"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">注册</button>
+        </form>
+      </div>
+
+      <a href="{{pathFor 'signin'}}" class="link-auth-alt">已经有帐号了？点此登录</a>
+    </div>
+  </div>
+</template>
