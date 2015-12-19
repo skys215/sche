@@ -1,0 +1,13 @@
+<template name="register">
+	<div class="user_form">
+		<h1 class="title">Register</h1>
+		<form class="pure-form">
+			<fieldset class="pure-group pure-u-1-6">
+				<input type="text" name="name" placeholder="Username" />
+				<input type="password" name="password" placeholder="Password" />
+				<button class="pure-u-1 pure-button pure-button-primary">Reigster</button>
+				Got account?<a href="{{pathFor 'login'}}">Login</a>
+			</fieldset>
+		</form>
+	</div>
+</template>

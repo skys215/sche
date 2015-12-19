@@ -1,0 +1,20 @@
+*{
+	outline: 1px solid dodgerblue;
+}
+#layout{
+	height: 100%;
+}
+h1.title{
+	text-align: center;
+}
+.menu{
+	display: none;
+}
+.user_form{
+	text-align: center;
+}
+@media screen (min-width: 768px){
+	.menu{
+		display:block;
+	}
+}
