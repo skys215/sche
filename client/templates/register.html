@@ -1,10 +1,19 @@
 <template name="register">
 	<div class="user_form">
 		<h1 class="title">Register</h1>
-		<form class="pure-form">
+		<form class="pure-form" method="POST">
+			{{#if errorMessages}}
+				<div class="list-errors">
+					{{#each errorMessages}}
+						<div class="list-item">{{this}}</div>
+					{{/each}}
+				</div>
+			{{/if}}
 			<fieldset class="pure-group pure-u-1-6">
-				<input type="text" name="name" placeholder="Username" />
+				<input type="text" name="username" placeholder="Username" />
+				<input type="text" name="email" placeholder="Email" />
 				<input type="password" name="password" placeholder="Password" />
+				<input type="password" name="confirm" placeholder="Confirm password" />
 				<button class="pure-u-1 pure-button pure-button-primary">Reigster</button>
 				Got account?<a href="{{pathFor 'login'}}">Login</a>
 			</fieldset>
