@@ -1,0 +1,22 @@
+.content{
+	background-color: rgba( 206, 206, 206, 0.9);
+	box-sizing: border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+	width: 400px;
+	margin: 10px;
+	padding: 20px;
+}
+.schedules{
+	padding: 0px;
+}
+.schedules li{
+	list-style-position: inside;
+	list-style-type: none;
+	padding: 1em;
+}
+.schedules li:first-child{
+	color: #585858;
+	padding: 0.5em;
+	font-size: 1.4em;
+}

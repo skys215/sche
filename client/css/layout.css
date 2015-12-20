@@ -1,11 +1,21 @@
-*{
-	outline: 1px solid dodgerblue;
+body{
+	background-image: url(/images/lights-night-dark-abstract-640*426.jpeg);
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+@media screen and (min-width: 640px){
+	body{
+		background-image: url(/images/lights-night-dark-abstract-1920*1080.jpeg);
+	}
+}
+.container{
 }
 #layout{
 	height: 100%;
 }
 h1.title{
 	text-align: center;
+	padding: 0;
 }
 .menu{
 	display: none;
