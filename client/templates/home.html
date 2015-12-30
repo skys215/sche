@@ -9,10 +9,12 @@
 	</div>
 	<div class="content">
 		<a href="#" class="logout">Logout</a>
+		<a href="{{ pathFor 'newEvent' }}" class="create">New meeting</a>
 		<ul class="schedules coming up">
 			<li class="title">Coming up</li>
-			<li>Meeting1</li>
-			<li>Meeting2</li>
+			  {{#each events}}
+			  	<li><a href="{{ pathFor 'viewEvent' }}">{{name}}</a></li>
+			  {{/each}}
 		</ul>
 		<ul class="schedules decided">
 			<li class="title">Decided</li>

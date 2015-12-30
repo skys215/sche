@@ -10,3 +10,17 @@ Template.home.events({
 		});
 	}
 });
+
+
+Template.home.helpers({
+	eventsReady: function() {
+		return Router.current().eventsHandle.ready();
+	},
+	events: function(){
+		return Events.find({uid:Meteor.userId()});
+	}
+})
+
+uuid = function(){
+	return new Meteor.Collection.ObjectID().toHexString();
+}

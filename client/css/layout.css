@@ -1,11 +1,22 @@
 body{
-	background-image: url(/images/lights-night-dark-abstract-640*426.jpeg);
+	background-image: url(/images/bg/coffee-apple-iphone-desk-640x426.jpg);
 	background-position: top center;
 	background-repeat: no-repeat;
+	background-size: cover;
 }
-@media screen and (min-width: 640px){
+@media screen and (min-height: 426px){
 	body{
-		background-image: url(/images/lights-night-dark-abstract-1920*1080.jpeg);
+		background-image: url(/images/bg/coffee-apple-iphone-desk-1280x853.jpg);
+	}
+}
+@media screen and (min-height: 853px){
+	body{
+		background-image: url(/images/bg/coffee-apple-iphone-desk-1920x1080.jpg);
+	}
+}
+@media screen and (min-height: 1080px){
+	body{
+		background-image: url(/images/bg/coffee-apple-iphone-desk-5472x3648.jpeg);
 	}
 }
 .container{
@@ -17,6 +28,18 @@ h1.title{
 	text-align: center;
 	padding: 0;
 }
+h1.title,
+fieldset,
+h1.title a:link,
+h1.title a:visited,
+h1.title a:hover,
+h1.title a:active,
+fieldset a:link,
+fieldset a:visited,
+fieldset a:hover,
+fieldset a:active{
+	color: rgba( 255, 255, 255, 0.8);
+}
 .menu{
 	display: none;
 }
@@ -27,4 +50,31 @@ h1.title{
 	.menu{
 		display:block;
 	}
+}
+
+
+
+.pure-button-success,
+.pure-button-error,
+.pure-button-warning,
+.pure-button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pure-button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.pure-button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.pure-button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.pure-button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
 }
