@@ -1,0 +1,15 @@
+<template name="dates">
+	<form class="pure-form dates" method="POST">
+		<fieldset class="pure-u-1-6">
+			<input type="text" name="eventDate" placeholder="Event date"/>
+			<input type="text" name="eventStartTime" placeholder="Event start time"/>
+			<input type="text" name="eventEndTime" placeholder="Event end time"/>
+			<button class="pure-button-primary pure-button addDate">Add</button>
+			<ul class="date_list">
+			{{#each dates}}
+				<li data-id="{{ this._id}}">{{this.date}} {{this.startTime}} - {{this.date}} {{this.endTime}}<a href="#" class="pure-button-danger removeDate">Remove</a></li>
+			{{/each}}
+			</ul>
+		</fieldset>
+	</form>
+</template>

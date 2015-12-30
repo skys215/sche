@@ -1,0 +1,13 @@
+<template name="invitees">
+	<form class="pure-form invitees" method="POST">
+		<fieldset class="pure-u-1-6">
+			<input type="email" name="email" placeholder="Invitee email"/>
+			<button class="pure-button-primary pure-button invite">Invite</button>
+			<ul class="invitees_list">
+			{{#each invitees}}
+				<li id="inv_{{this.id}}">{{this.email}}{{#if this.has_viewed}}(Viewed){{/if}}</li>
+			{{/each}}
+			</ul>
+		</fieldset>
+	</form>
+</template>
