@@ -2,7 +2,16 @@
 	<form class="pure-form places" method="POST">
 		<fieldset class="pure-u-1-6">
 			places
-			{{! map}}
+			<input type="text" name="place" placeholder="place"/>
+			<button class="pure-button-primary pure-button addPlace">Add</button>
+			<ul class="date_list">
+			{{#each places}}
+				<li data-id="{{ this._id }}">
+					{{this.placeName}}
+					<a class="removePlace">Remove</a>
+				</li>
+			{{/each}}
+			</ul>
 		</fieldset>
 	</form>
 </template>
