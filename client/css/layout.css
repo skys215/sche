@@ -1,8 +1,9 @@
 body{
 	background-image: url(/images/bg/coffee-apple-iphone-desk-640x426.jpg);
-	background-position: top center;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 @media screen and (min-height: 426px){
 	body{
@@ -21,6 +22,15 @@ body{
 }
 .container{
 }
+.content{
+	background-color: rgba( 206, 206, 206, 0.9);
+	box-sizing: border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+	width: 400px;
+	margin: 10px auto;
+	padding: 20px;
+}
 #layout{
 	height: 100%;
 }
@@ -28,23 +38,8 @@ h1.title{
 	text-align: center;
 	padding: 0;
 }
-h1.title,
-fieldset,
-h1.title a:link,
-h1.title a:visited,
-h1.title a:hover,
-h1.title a:active,
-fieldset a:link,
-fieldset a:visited,
-fieldset a:hover,
-fieldset a:active{
-	color: rgba( 255, 255, 255, 0.8);
-}
 .menu{
 	display: none;
-}
-.user_form{
-	text-align: center;
 }
 @media screen (min-width: 768px){
 	.menu{

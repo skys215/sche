@@ -1,0 +1,7 @@
+.invitees_list{
+	padding: 0px;
+}
+.invitees_list li{
+	list-style-position: inside;
+	list-style-type: none;
+}

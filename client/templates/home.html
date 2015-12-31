@@ -1,26 +1,16 @@
 <template name="home">
-	<div class="menu pure-menu pure-u">
-		<span class="pure-menu-heading">Meetup</span>
-		<ul class="pure-menu-list">
-			<li class="pure-menu-item">A</li>
-			<li class="pure-menu-item">B</li>
-			<li class="pure-menu-item">C</li>
-		</ul>
-	</div>
-	<div class="content">
-		<a href="#" class="logout">Logout</a>
-		<a href="{{ pathFor 'newEvent' }}" class="create">New meeting</a>
-		<ul class="schedules coming up">
-			<li class="title">Coming up</li>
-			  {{#each events}}
-			  	<li><a href="{{ pathFor 'viewEvent' }}">{{name}}</a></li>
-			  {{/each}}
-		</ul>
-		<ul class="schedules decided">
-			<li class="title">Decided</li>
-		</ul>
-		<ul class="schedules expired">
-			<li class="title">Expired</li>
-		</ul>
-	</div>
+	<a href="#" class="logout">Logout</a>
+	<a href="{{ pathFor 'newEvent' }}" class="create">New meeting</a>
+	<ul class="schedules coming up">
+		<li class="title">Coming up</li>
+		{{#each events}}
+			<li><a href="{{ pathFor 'viewEvent' }}">{{name}}</a></li>
+		{{/each}}
+	</ul>
+	<ul class="schedules decided">
+		<li class="title">Decided</li>
+	</ul>
+	<ul class="schedules expired">
+		<li class="title">Expired</li>
+	</ul>
 </template>

@@ -1,7 +1,17 @@
 <template name="layout">
 <div id="layout">
 	<div class="container">
-		{{> yield}}
+		<div class="menu pure-menu pure-u">
+			<span class="pure-menu-heading">Meetup</span>
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item">A</li>
+				<li class="pure-menu-item">B</li>
+				<li class="pure-menu-item">C</li>
+			</ul>
+		</div>
+		<div class="content">
+			{{> yield}}
+		</div>
 	</div>
 </div>
 </template>
