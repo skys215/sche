@@ -24,10 +24,7 @@ var addNewInvitee= function( events, template ){
 	var emailBox = template.$('input[name="email"]');
 	var email = emailBox.val();
 	var inv_list = template.$('ul.invitees_list');
-	if( inv_list.find('li:contains('+email+')').length ){
-		alert('You have already invited '+email+'.');
-		return false;
-	}
+
 	var inv_item = $('<li>');
 	inv_item.text( email );
 	inv_item.appendTo( inv_list );
@@ -48,6 +45,9 @@ var addNewInvitee= function( events, template ){
 			invitees: invs
 		}
 	};
-
+	if( Events.find({_id: events._id}, {'invitees.email': email}).count() ){
+		alert('You have already invited '+ email );
+		return false;
+	}
 	Events.update( events._id, meeting );
 }
