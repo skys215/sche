@@ -1,7 +1,7 @@
 <template name="register">
-	<div class="user_form">
+	<div class="user_form pure-u-1">
 		<h1 class="title">Register</h1>
-		<form class="pure-form" method="POST">
+		<form class="pure-form pure-u-3-4" method="POST">
 			{{#if errorMessages}}
 				<div class="list-errors">
 					{{#each errorMessages}}
@@ -10,12 +10,14 @@
 				</div>
 			{{/if}}
 			<fieldset class="pure-group">
-				<input type="text" name="username" placeholder="Username" />
-				<input type="text" name="email" placeholder="Email" />
-				<input type="password" name="password" placeholder="Password" />
-				<input type="password" name="confirm" placeholder="Confirm password" />
-				<button class="pure-button pure-button-primary">Reigster</button>
-				Got account?<a href="{{pathFor 'login'}}">Login</a>
+				<input type="text" name="username" placeholder="Username" class="pure-u-1" />
+				<input type="text" name="email" placeholder="Email" class="pure-u-1" />
+				<input type="password" name="password" placeholder="Password" class="pure-u-1" />
+				<input type="password" name="confirm" placeholder="Confirm password" class="pure-u-1" />
+				<button class="pure-u-1 pure-button pure-button-primary">Reigster</button>
+				<div class="logreg_tip">
+					Got account?<a href="{{pathFor 'login'}}">Login</a>
+				</div>
 			</fieldset>
 		</form>
 	</div>

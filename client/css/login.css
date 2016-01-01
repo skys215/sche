@@ -1,0 +1,12 @@
+.content > .user_form{
+	text-align: center;
+}
+
+.login{
+	margin: 10px 0;
+}
+
+.logreg_tip{
+	color: rgb( 255, 255, 255, 0.8);
+	font-size: 0.8em;
+}

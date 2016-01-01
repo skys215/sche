@@ -1,17 +1,13 @@
 <template name="layout">
 <div id="layout">
-	<div class="container">
-		<div class="menu pure-menu pure-u">
-			<span class="pure-menu-heading">Meetup</span>
-			<ul class="pure-menu-list">
-				<li class="pure-menu-item">A</li>
-				<li class="pure-menu-item">B</li>
-				<li class="pure-menu-item">C</li>
-			</ul>
-		</div>
-		<div class="content">
-			{{> yield}}
-		</div>
+	<div class="menu">
+		<div class="menu-heading">MEETUP</div>
+		<ul class="menu-list">
+			<li class="menu-item"><a href="#" class="logout">Logout</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		{{> yield}}
 	</div>
 </div>
 </template>
