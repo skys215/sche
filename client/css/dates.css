@@ -1,3 +1,10 @@
 form.dates input{
 	color: black;
 }
+.date_list{
+	padding: 0px;
+}
+.date_list li{
+	list-style-position: inside;
+	list-style-type: none;
+}

@@ -1,0 +1,7 @@
+.place_list{
+	padding: 0px;
+}
+.place_list li{
+	list-style-type: none;
+	list-style-position: inside;
+}

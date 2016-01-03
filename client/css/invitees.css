@@ -1,7 +1,7 @@
-.invitees_list{
+.invitee_list{
 	padding: 0px;
 }
-.invitees_list li{
+.invitee_list li{
 	list-style-position: inside;
 	list-style-type: none;
 }

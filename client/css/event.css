@@ -1,0 +1,7 @@
+.meeting_form .create{
+	margin: 10px 0;
+}
+.events_list li{
+	list-style-position: inside;
+	list-style-type: none;
+}
