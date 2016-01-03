@@ -23,6 +23,9 @@ Template.newEvent.events({
 	}
 });
 
+Template.invitees.helpers({
+	isMyEvent: ( Meteor.userId() == this.uid )
+});
 Template.viewEvent.events({
 	'click .meeting .update': function( event ){
 		var self = $(event.target);

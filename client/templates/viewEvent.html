@@ -1,9 +1,13 @@
 <template name="viewEvent">
-	<div class="meeting_form">
-		<div class="meeting_info">
-			<h1 class="title">{{name}}</h1>
-			<a class="delete">Delete</a>
-		</div>
+	<div class="titleBar">
+		<span class="title">{{name}}</span>
+		{{#if isMyEvent}}
+			<a href="#" class="rightbtn delete">
+				<i>-</i>
+			</a>
+		{{/if}}
+	</div>
+	<div class="meeting_form" data-id={{_id}}>
 		{{> invitees }}
 		{{> dates }}
 		{{> places }}
