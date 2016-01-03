@@ -1,6 +1,6 @@
 Template.places.helpers({
 	hasVoted: function(){
-		return _.include(this.votes, Meteor.userId() || Router.current().params.email_id );
+		return _.include(this.votes, currentUserId() );
 	}
 });
 
@@ -21,7 +21,7 @@ Template.places.events({
 			placeName: name,
 			coord_x: 0,
 			coord_y: 0,
-			votes:[]
+			votes:[ currentUserId() ]
 		};
 
 		Events.update( this._id, {
@@ -55,6 +55,6 @@ Template.places.events({
 		if( self.hasClass('voted') ){
 			voteAction = 'unvotePlace';
 		}
-		Meteor.call( voteAction, eventId, this._id, Meteor.userId() || Router.current().params.email_id);
+		Meteor.call( voteAction, eventId, currentUserId() );
 	}
 })

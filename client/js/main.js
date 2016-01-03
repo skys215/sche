@@ -17,7 +17,6 @@ Template.layout.helpers({
 	}
 })
 
-
 Template.home.helpers({
 	eventsReady: function() {
 		return Router.current().eventsHandle.ready();
@@ -29,4 +28,8 @@ Template.home.helpers({
 
 uuid = function(){
 	return new Meteor.Collection.ObjectID().toHexString();
+}
+
+currentUserId = function(){
+	return Meteor.userId() || Router.current().params.email_id;
 }

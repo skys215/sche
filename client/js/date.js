@@ -21,7 +21,7 @@ Template.dates.onRendered(function(){
 
 Template.dates.helpers({
 	hasVoted: function(){
-		return _.include(this.votes, Meteor.userId() || Router.current().params.email_id );
+		return _.include(this.votes, currentUserId() );
 	}
 });
 
@@ -54,7 +54,7 @@ Template.dates.events({
 			date: date,
 			startTime: startTime,
 			endTime: endTime,
-			votes: []
+			votes: [ currentUserId() ]
 		}
 
 		var meeting = {
@@ -86,6 +86,6 @@ Template.dates.events({
 		if( self.hasClass('voted') ){
 			voteAction = 'unvoteDate';
 		}
-		Meteor.call( voteAction, eventId, this._id, Meteor.userId() || Router.current().params.email_id);
+		Meteor.call( voteAction, eventId, currentUserId() );
 	}
 });
