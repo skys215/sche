@@ -1,7 +1,7 @@
 <template name="newEvent">
-	<div class="meeting_form">
-		<h1 class="title">New meeting</h1>
-		<form class="pure-form meeting" method="POST">
+	<div class="meeting_form pure-u-1">
+		<h1 class="title">New event</h1>
+		<form class="pure-form meeting pure-u-3-4" method="POST">
 			{{#if errorMessages}}
 				<div class="list-errors">
 					{{#each errorMessages}}
@@ -9,9 +9,9 @@
 					{{/each}}
 				</div>
 			{{/if}}
-			<fieldset class="pure-group pure-u-1-6">
-				<input type="text" name="title" placeholder="Subject, ex:Stand up meeting" />
-				<textarea name="description" placeholder="Description, ex: Weekend summary"></textarea>
+			<fieldset>
+				<input type="text" name="title" placeholder="Subject, ex:Stand up meeting" class="pure-u-1" />
+				<textarea name="description" placeholder="Description, ex: Weekend summary" class="pure-u-1"></textarea>
 				<button class="pure-u-1 pure-button pure-button-primary create">Create</button>
 			</fieldset>
 		</form>

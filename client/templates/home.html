@@ -1,15 +1,26 @@
 <template name="home">
-	<a href="{{ pathFor 'newEvent' }}" class="create">New meeting</a>
-	<ul class="schedules coming up">
+	<div class="titleBar">
+		<span class="title">Events</span>
+		<a href="{{ pathFor 'newEvent' }}" class="rightbtn newEvent">
+			<i>+</i>
+		</a>
+	</div>
+	<ul class="schedules comingUp">
 		<li class="title">Coming up</li>
 		{{#each events}}
-			<li><a href="{{ pathFor 'viewEvent' }}">{{name}}</a></li>
+			<li class="event" data-id="{{_id}}">
+				<div>
+					<a href="{{ pathFor 'viewEvent' }}">{{name}}</a>
+				</div>
+				<div>
+					<div> {{ invitees.length }} invitees</div>
+					<div> {{ dates.length }} dates </div>
+					<div> {{ places.length }} places </div>
+				</div>
+			</li>
 		{{/each}}
 	</ul>
 	<ul class="schedules decided">
 		<li class="title">Decided</li>
-	</ul>
-	<ul class="schedules expired">
-		<li class="title">Expired</li>
 	</ul>
 </template>

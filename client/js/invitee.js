@@ -23,31 +23,25 @@ Template.home.helpers({
 var addNewInvitee= function( events, template ){
 	var emailBox = template.$('input[name="email"]');
 	var email = emailBox.val();
-	var inv_list = template.$('ul.invitees_list');
 
-	var inv_item = $('<li>');
-	inv_item.text( email );
-	inv_item.appendTo( inv_list );
-	emailBox.val('');
-	var invs = events.invitees;
-	if( !invs ){
-		invs = [];
-	}
 	var inv = {
-		id: uuid(),
+		_id: uuid(),
 		email: email,
-		has_viewed: false
+		has_viewed: false,
+		sent_invitation: false
 	};
-	invs.push( inv );
 
-	var meeting = {
-		$set: {
-			invitees: invs
-		}
-	};
-	if( Events.find({_id: events._id}, {'invitees.email': email}).count() ){
+	if( events.invitees.length && Events.find({_id: events._id, 'invitees.email': email}).count() ){
 		alert('You have already invited '+ email );
+		emailBox.focus();
 		return false;
 	}
-	Events.update( events._id, meeting );
+	Events.update( events._id, {
+		$push: {
+			'invitees': inv
+		}
+	});
+	emailBox.val('');
+	emailBox.focus();
+	return false;
 }

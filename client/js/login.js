@@ -24,7 +24,7 @@ Template.login.events({
 				return Session.set(ERRORS_KEY, {'none': error.reason});
 			}
 
-			Router.go('/');
+			Router.go('/home');
 		});
 	}
 })

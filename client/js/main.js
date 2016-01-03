@@ -5,11 +5,17 @@ Template.layout.events({
 				console.log(error);
 			}
 			else{
-				Router.go('/');
+				Meteor.logout();
+				Router.go('/login');
 			}
 		});
 	}
 });
+Template.layout.helpers({
+	currentUser: function(){
+		return Meteor.user();
+	}
+})
 
 
 Template.home.helpers({

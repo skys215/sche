@@ -28,6 +28,7 @@ Template.invitees.helpers({
 });
 Template.viewEvent.events({
 	'click .meeting .update': function( event ){
+		event.preventDefault();
 		var self = $(event.target);
 		var form = $(self).parents('form');
 
@@ -41,10 +42,11 @@ Template.viewEvent.events({
 		};
 
 		meeting._id = Events.update( this._id, meeting );
-		Router.go('home');
+		Router.go('event/'+meeting._id);
 	},
 
-	'click .meeting .delete': function( event ){
+	'click .meeting_form .delete': function( event ){
+		event.preventDefault();
 		if( confirm('Are you sure you want to delete?') ){
 			Events.remove({_id:this._id});
 			Router.go('home');
