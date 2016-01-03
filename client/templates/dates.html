@@ -8,7 +8,16 @@
 			<button class="pure-button-primary pure-button addDate">Add</button>
 			<ul class="date_list">
 			{{#each dates}}
-				<li data-id="{{ this._id}}">{{this.date}} {{this.startTime}} - {{this.date}} {{this.endTime}}<a href="#" class="pure-button-danger removeDate">Remove</a></li>
+				<li data-id="{{this._id}}">
+					({{votes.length}}/{{../invitees.length}})
+					{{this.date}} {{this.startTime}} - {{this.date}} {{this.endTime}}
+					{{#if hasVoted}}
+						<a href="#" class="voteDate voted">Unvote</a>
+					{{else}}
+						<a href="#" class="voteDate">Vote</a>
+					{{/if}}
+					<a href="#" class="pure-button-danger removeDate">Remove</a>
+				</li>
 			{{/each}}
 			</ul>
 		</fieldset>

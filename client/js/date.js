@@ -19,6 +19,12 @@ Template.dates.onRendered(function(){
 	});
 });
 
+Template.dates.helpers({
+	hasVoted: function(){
+		return _.include(this.votes, Meteor.userId() || Router.current().params.email_id );
+	}
+});
+
 Template.dates.events({
 	'click .addDate': function( events ){
 		event.preventDefault();
@@ -29,8 +35,18 @@ Template.dates.events({
 		var endTime =	form.find('input[name="eventEndTime"]').val();
 
 		var dates = this.dates;
-		if( !dates ){
-			dates = [];
+
+		var hasSameDateTime = Events.find({
+			_id: this._id,
+			dates:{
+				date: date,
+				startTime: startTime,
+				endTime: endTime
+			}
+		}).count();
+		if( hasSameDateTime ){
+			alert('Date already added.');
+			return false;
 		}
 
 		var time = {
@@ -38,11 +54,11 @@ Template.dates.events({
 			date: date,
 			startTime: startTime,
 			endTime: endTime,
+			votes: []
 		}
-		dates.push( time );
 
 		var meeting = {
-			$set: { dates: dates }
+			$push: { dates: time }
 		};
 		Events.update( this._id, meeting );
 	},
@@ -51,7 +67,7 @@ Template.dates.events({
 		var self = $(event.target);
 		var time_id = self.parents('li').attr('data-id');
 
-		var a = Events.update( {
+		Events.update( {
 			_id: template.data._id
 			},{
 			$pull:{
@@ -60,5 +76,16 @@ Template.dates.events({
 				}
 			}
 		});
+	},
+	'click .voteDate': function( event ){
+		event.preventDefault();
+		var self = $(event.target);
+
+		var eventId = self.parents('div.meeting_form').attr('data-id');
+		var voteAction = 'voteDate';
+		if( self.hasClass('voted') ){
+			voteAction = 'unvoteDate';
+		}
+		Meteor.call( voteAction, eventId, this._id, Meteor.userId() || Router.current().params.email_id);
 	}
 });

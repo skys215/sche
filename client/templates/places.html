@@ -4,10 +4,15 @@
 		<fieldset>
 			<input type="text" name="place" placeholder="place"/>
 			<button class="pure-button-primary pure-button addPlace">Add</button>
-			<ul class="date_list">
+			<ul class="place_list">
 			{{#each places}}
 				<li data-id="{{ this._id }}">
-					{{this.placeName}}
+					({{votes.length}}/{{../invitees.length}}){{placeName}}
+					{{#if hasVoted}}
+						<a href="#" class="votePlace voted">Unvote</a>
+					{{else}}
+						<a href="#" class="votePlace">Vote</a>
+					{{/if}}
 					<a class="removePlace">Remove</a>
 				</li>
 			{{/each}}
