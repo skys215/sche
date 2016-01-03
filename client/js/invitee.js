@@ -9,6 +9,20 @@ Template.invitees.events({
 	'click .invitees .invite': function( event, template ){
 		event.preventDefault();
 		addNewInvitee( this, template );
+		return false;
+	},
+	'click .invitees .removeInvitee': function( event, template ){
+		event.preventDefault();
+
+		Events.update( {
+			_id: template.data._id
+			},{
+			$pull:{
+				invitees:{
+					_id: this._id
+				}
+			}
+		});
 	}
 });
 
