@@ -34,17 +34,7 @@ Template.dates.events({
 		var startTime =	form.find('input[name="eventStartTime"]').val();
 		var endTime =	form.find('input[name="eventEndTime"]').val();
 
-		var dates = this.dates;
-
-		var hasSameDateTime = Events.find({
-			_id: this._id,
-			dates:{
-				date: date,
-				startTime: startTime,
-				endTime: endTime
-			}
-		}).count();
-		if( hasSameDateTime ){
+		if( checkHasSameDateTime( this._id, date, startTime, endTime) ){
 			alert('Date already added.');
 			return false;
 		}
@@ -89,3 +79,16 @@ Template.dates.events({
 		Meteor.call( voteAction, eventId, currentUserId() );
 	}
 });
+
+checkHasSameDateTime = function( eventId, eventDate, eventStartTime, eventEndTime ){
+	return Events.find({
+		_id: eventId,
+		dates:{
+			$elemMatch:{
+				date: eventDate,
+				startTime: eventStartTime,
+				endTime: eventEndTime
+			}
+		}
+	}).count();
+}
