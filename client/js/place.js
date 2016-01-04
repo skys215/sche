@@ -55,6 +55,6 @@ Template.places.events({
 		if( self.hasClass('voted') ){
 			voteAction = 'unvotePlace';
 		}
-		Meteor.call( voteAction, eventId, currentUserId() );
+		Meteor.call( voteAction, eventId, this._id, currentUserId() );
 	}
 })
