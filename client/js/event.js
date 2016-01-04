@@ -13,7 +13,7 @@ Template.newEvent.events({
 			uid: Meteor.userId(),
 			name: name,
 			description: description,
-			invitees: [],
+			invitees: [{_id:Meteor.userId(), email:Meteor.user().email}],
 			dates   : [],
 			places  : []
 		};
