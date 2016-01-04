@@ -7,8 +7,8 @@
 				{{this.email}}{{#if this.has_viewed}}(Viewed){{/if}}
 				{{#if currentUser}}
 					{{#unless this.sent_invitation }}
-						<a href="#" class="sendInvitation">Send invitation</a>
-						Link:<a href="/event/{{../_id}}/invitee/{{this._id}}"> asdxx</a>
+						<!-- <a href="#" class="sendInvitation">Send invitation</a> -->
+						Link:<a href="/event/{{../_id}}/invitee/{{this._id}}">Copy this link</a>
 					{{/unless}}
 					<a href="#" class="removeInvitee">Remove</a>
 				{{/if}}
